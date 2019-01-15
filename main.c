@@ -1,6 +1,22 @@
 #include <stdio.h>
 char arr[1024];
 int index = 0;
+int isMingan(char x){
+   
+
+    int count = 0;
+    for(int i=0;i<index;i++){
+        if(x == arr[i]){
+            count++;
+        }
+    }
+
+    if(count == 0){
+        return 0;
+    }else{
+        return 1;
+    }
+}
 int main()
 {
     printf("敏感字符管理系统\n");
@@ -40,7 +56,7 @@ int main()
         }
         if (code == 3)
         {
-             printf("所有敏感字符如下：\n");
+            printf("所有敏感字符如下：\n");
 
             for (int i = 0; i < index; i++)
             {
@@ -54,6 +70,33 @@ int main()
         }
         if (code == 4)
         {
+            printf("请输入一段英文：\n");
+            char neirong[1024];
+
+            scanf("%s", neirong);
+
+            for (int i = 0; 1; i++)
+            {
+
+                if (neirong[i] == '\0')
+                {
+                    break;
+                }
+
+                if (isMingan(arr[i]) == 1)
+                {
+                    neirong[i] = '*';
+                }
+
+                printf("%c", neirong[i]);
+            }
+
+            printf("\n");
+
+            printf("替换完成，点击回车继续\n");
+            char x;
+            scanf("%c", &x);
+            scanf("%c", &x);
         }
         if (code == 5)
         {
